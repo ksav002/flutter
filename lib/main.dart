@@ -13,6 +13,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String buttonName = 'Click Me';
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +24,26 @@ class _MyAppState extends State<MyApp> {
             title: const Text('Test App'),
             backgroundColor: const Color(0xCE766060)),
         body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              setState(() {
-                buttonName = 'Button Clicked';
-              });
-            },
-            child: Text(buttonName),
+          child: Column(
+            mainAxisAlignment:MainAxisAlignment.center ,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    buttonName = 'Button Clicked';
+                  });
+                },
+                child: Text(buttonName),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    buttonName = 'Button Clicked';
+                  });
+                },
+                child: Text(buttonName),
+              ),
+            ],
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -43,6 +57,12 @@ class _MyAppState extends State<MyApp> {
               icon: Icon(Icons.settings),
             ),
           ],
+          currentIndex: currentIndex,
+          onTap: (int index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
         ),
       ),
     );
