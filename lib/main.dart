@@ -1,70 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_learn/pages/home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  MyApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String buttonName = 'Click Me';
-  int currentIndex = 0;
-
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-            title: const Text('Test App'),
-            backgroundColor: const Color(0xCE766060)),
-        body: Center(
-          child: Column(
-            mainAxisAlignment:MainAxisAlignment.center ,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    buttonName = 'Button Clicked';
-                  });
-                },
-                child: Text(buttonName),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    buttonName = 'Button Clicked';
-                  });
-                },
-                child: Text(buttonName),
-              ),
-            ],
-          ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              label: 'Home',
-              icon: Icon(Icons.home),
-            ),
-            BottomNavigationBarItem(
-              label: 'Setting',
-              icon: Icon(Icons.settings),
-            ),
-          ],
-          currentIndex: currentIndex,
-          onTap: (int index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-        ),
-      ),
+      home: HomePage()
     );
   }
 }
